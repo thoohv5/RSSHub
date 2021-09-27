@@ -16,7 +16,8 @@ RUN if [ "$USE_CHINA_NPM_REGISTRY" = 1 ]; then \
   echo 'use npm mirror'; npm config set registry https://registry.npm.taobao.org; \
   fi;
 
-RUN npm i -g npm
+RUN npm i -g npm@6.14.13
+RUN git config --global http.sslverify false && git config --global https.sslverify false
 
 RUN if [ "$PUPPETEER_SKIP_CHROMIUM_DOWNLOAD" = 0 ]; then \
   unset PUPPETEER_SKIP_CHROMIUM_DOWNLOAD && npm ci ;\
