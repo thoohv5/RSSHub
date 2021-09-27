@@ -4,7 +4,7 @@ services:
     rsshub:
         build:
             context: .
-            container_name: rsshub
+        container_name: rsshub
         restart: always
         ports:
             - '1200:1200'
